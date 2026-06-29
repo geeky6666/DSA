@@ -21,35 +21,32 @@ int isFull(struct myarray *st){
         return 0;
     }
 }
-void push(struct myarray *st,char data){
+void push(struct myarray *st,char value){
     if(isFull(st)){
-        printf("Stack is Full \n");
+        printf("Stack is Full\n");
     }
     else{
         st->top++;
-        st->arr[st->top]=data;
+        st->arr[st->top]=value;
     }
 }
 char pop(struct myarray *st){
     if(isEmpty(st)){
-        printf("Stack is Empty \n");
+        printf("Stack is Empty\n");
     }
     else{
-        char data=st->arr[st->top];
+        int value=st->arr[st->top];
         st->top--;
-        return data;
     }
 }
-int parantesismatching(char *exp){
+int parenthesis(char *exp){
     struct myarray *st=(struct myarray*)malloc(sizeof(struct myarray));
     st->size=100;
     st->top=-1;
     st->arr=(char*)malloc(st->size*sizeof(char));
     for(int i=0;exp[i]!='\0';i++){
-        if(exp[i]=='(')
-        {
+        if(exp[i]=='('){
             push(st,'(');
-
         }
         else if(exp[i]==')'){
             if(isEmpty(st)){
@@ -67,12 +64,12 @@ int parantesismatching(char *exp){
 }
 int main()
 {
-    char *exp="(8*5+(4*6/(4-8)))))";
-    if(parantesismatching(exp)){
-        printf("Paranthesis is Matching \n");
+    char *surya="(3*2(2+3))";
+    if(parenthesis(surya)){
+        printf("parenthesis is matching\n");
     }
     else{
-        printf("Paranthesis is not matching \n");
+        printf("parenthesis is not matching \n");
     }
     return 0;
 }
