@@ -47,7 +47,7 @@ int main()
     q.f=q.r=-1;
     q.arr=(int *)malloc(q.size*sizeof(int));
     if(isEmpty(&q)){
-        printf("Queue is empty\n");
+        printf("Queue is empty abnd \n");
     }
     enqueue(&q,10);
     enqueue(&q,30);
